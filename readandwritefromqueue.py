@@ -1,24 +1,18 @@
-import Queue #
+#!/usr/bin/env python
+import pika
 
+credentials = pika.PlainCredentials('Youssef', password='abcd')
+parameters = pika.ConnectionParameters('192.168.232.128', credentials=crendetials)
 
-queue = []
-queue.append("data")
-queue.append("data 2")
+connection = pika.BlockingConnection(parameters)
 
-print(queue)
-queue.pop(0)
-print(queue)
+channel = connection.channel()
 
-Class Queue:
+channel.queue_declare(queue='Hello Disha')
 
-	def _init_(self):
-            self.queue = []
-        def enqueue(self, item):
-            self.queue.append(item)
-        def dequeue(self):
-            if len(self.queue) < 1:
-            	return None
-            return self.queue.pop(0)
-        def size(self):
-            return len(self.queue)
-       
+channel.basic_publish(exchange='',
+		  routing_key='Hello Disha',
+		  body='Hey World!')
+print(" Youssef Sent'Hello World!'")
+connection.close()		  
+		
