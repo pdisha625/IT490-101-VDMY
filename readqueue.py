@@ -15,7 +15,7 @@ def main():
     print(' ready... ')
     channel.start_consuming()
     
-if __name__ = '__main__':
+if __name__ == '__main__':
     try:
         main()
     except KeyboardInterrupt:
