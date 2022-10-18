@@ -1,2 +1,2 @@
-sshpass -p obson@10.242.125.55 'bash -s'< RabbitmqScript.sh
+ssh -p obson@10.242.125.55 'bash -s'< RabbitmqScript.sh
 
