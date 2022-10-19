@@ -3,7 +3,6 @@ import pika, sys, os
 
 def main():
     connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
-    credentials = pika.PlainCredentials(usernaame='admin', password='abcd')
     channel = connection.channel()
     
     channel.queue_declare(queue='Hello')
@@ -12,10 +11,10 @@ def main():
         print(" [x] Received %r" % body)
     channel.basic_consume(queue='Hello', on_message_callback=callback, auto_ack=True)
     
-    print(' ready... ')
+    print(' [*] Waiting for messages. To exit Press CTRL + C')
     channel.start_consuming()
     
-if __name__ = '__main__':
+if __name__ == '__main__':
     try:
         main()
     except KeyboardInterrupt:
