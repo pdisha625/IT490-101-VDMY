@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 import pika
 
-credentials = pika.PlainCredentials(username='youssef', password='12345678')
+credentials = pika.PlainCredentials(username='admin', password='admin')
 
 connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='10.242.125.55', credentials=credentials))
+    pika.ConnectionParameters(host='10.242.36.102', credentials=credentials))
 
 channel = connection.channel()
 
