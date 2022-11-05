@@ -1,8 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import pika, sys, os 
 
 def main():
-    connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+    credentials = pika.PlainCredentials(username='admin', password='admin')
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host='10.242.36.102', port='5672', credentials=credentials))
     
     channel = connection.channel()
     
