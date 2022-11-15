@@ -233,12 +233,6 @@ class rabbitMQClient
 		}
 	}
 
-	/**
-	  @brief send a one-way message to the server.  These are
-	  auto-acknowledged and give no response.
-	  @param message the body of the request.  This must make sense to the
-	  server
-	 */
 	function publish($message)
 	{
 		$json_message = json_encode($message);
