@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import pika
 
-credentials = pika.PlainCredentials(username='admin', password='admin')
-param = pika.ConnectionParameters(host='10.242.125.55', port='5672', credentials=credentials)
+credentials = pika.PlainCredentials(username='guest', password='guest')
+param = pika.ConnectionParameters(host='10.242.235.243', port='5672', credentials=credentials)
 
 connection = pika.BlockingConnection(param)
 

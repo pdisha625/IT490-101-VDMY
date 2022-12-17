@@ -10,7 +10,7 @@ channel = connection.channel()
 channel.queue_declare(queue='registration')
 
 def callback(ch, method, properties, body):
-    print(" [x] Received message: %r" % body)
+    print(" [x] Received message: %r" % bodyb)
 
 channel.basic_consume(queue='registration', on_message_callback=callback, auto_ack=True)
 

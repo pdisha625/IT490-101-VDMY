@@ -19,7 +19,7 @@ $request['type'] = "login";
 $request['username'] = "admin";
 $request['password'] = "admin";
 $request['message'] = $msg;
-$response = $client->send_request($msg);
+$response = $client->send_request($request);
 
 echo "client received response: " . PHP_EOL;
 print_r($response);

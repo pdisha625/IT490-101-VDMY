@@ -6,9 +6,6 @@ require_once('rabbitMQLib.inc');
 
 $client = new RabbitMQClient('testRabbitMQ.ini', 'testServer');
 
-$firstname = ($_POST['firstname']);
-$lastname = ($_POST['lastname']);
-$email = ($_POST['email']);
 $username = ($_POST['username']);
 $password = ($_POST['password']);
 $confirmPassword = ($_POST['confirmPassword']);
@@ -16,7 +13,7 @@ $confirmPassword = ($_POST['confirmPassword']);
 $missingError = '';
 $valError = ''; 
 
-if (isset($_POST['sign-up'])) {
+if (isset($_POST['login'])) {
         if ((empty($username)) or (empty($email)) or (empty($firstname)) or (empty($lastname)) or (empty($password))) {
                 $missingError = "Oops! You are missing some fields."; 
 
@@ -25,15 +22,12 @@ if (isset($_POST['sign-up'])) {
 
                 }
 
-                require 'sign-up.html';
+                require 'registration.html';
 
         } else {
                  
                 $request = array();
-                $request['type'] = "sign-up";
-                $request['firstname'] = $firstname;
-                $request['lastname'] = $lastname;
-                $request['email'] = $email;
+                $request['type'] = "login";
                 $request['username'] = $username;
                 $request['password'] = $password;
                 $request['message'] = "'{$username}' has been registered";
